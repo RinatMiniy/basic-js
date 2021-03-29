@@ -8,15 +8,15 @@ module.exports = function repeater(str, options) {
   if (options.repeatTimes == undefined) return str+options.addition
   
   for (let i = 0; i < options.repeatTimes; i++) {
-    fin+=str
+    fin += str
     for (let j = 0; j < options.additionRepeatTimes; j++) {
       if (options.additionRepeatTimes - j == 1) {
         fin += options.addition 
         continue
       }
-      fin+= options.addition + addsep
+      fin += options.addition + addsep
     }
-    fin+= sep
+    fin += sep
   }
   return fin.slice(0, fin.length - sep.length )
 };

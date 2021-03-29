@@ -9,15 +9,15 @@ module.exports = function transform(arr) {
         i++
         break
       case "--discard-prev":
-        if (i == 0) break
-        arr.split(i-1, 1)
+        if (i == 0 || arr[i-2] == "--discard-next") break
+        newarr.pop()
         break
       case "--double-next":
-        if (i == arr.length-1) break
+        if (i == arr.length-1 ) break
         newarr.push(arr[i+1])
         break
       case "--double-prev":
-        if (i == 0) break
+        if (i == 0 || arr[i-2] == "--discard-next") break
         newarr.push(newarr[newarr.length-1])
         break
       default:
